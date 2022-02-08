@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Xadrez_console.Board
 {
-    public class Board
+    public class GameBoard
     {
 
         public int Lines { get; set; }
         public int Columns { get; set; }
         private Piece[,] Pieces;
 
-        public Board(int lines, int columns)
+        public GameBoard(int lines, int columns)
         {
             Lines = lines;
             Columns = columns;
             Pieces = new Piece[lines, columns];
         }
+
+        public Piece Piece(int line, int column)
+        {
+            return Pieces[line, column];
+        }
+
     }
 }
