@@ -3,7 +3,7 @@ using Xadrez_console.Board.Enums;
 
 namespace Xadrez_console.Board
 {
-    public class Piece
+    public abstract class Piece
     {
 
         public Position Posistion { get; set; }
@@ -11,11 +11,11 @@ namespace Xadrez_console.Board
         public int Movements { get; protected set; }
         public GameBoard GameBoard { get; set; }
 
-        public Piece(Position posistion, Color color, GameBoard board)
+        public Piece(GameBoard gameBoard, Color color)
         {
-            this.Posistion = posistion;
+            this.Posistion = null;
             this.Color = color;
-            this.GameBoard = board;
+            this.GameBoard = gameBoard;
         }
     }
 }
