@@ -15,10 +15,7 @@ namespace Xadrez_console
             GameBoard(gameBoard);
             Screen.ShowGameBoard(gameBoard);
 
-            PositionChess positionChess = new PositionChess('c', 7);
-            Console.WriteLine(positionChess);
-
-            Console.WriteLine(positionChess.ToPosition());
+            
                        
         }
 
@@ -29,6 +26,10 @@ namespace Xadrez_console
                 gameBoard.PutPiece(new King(gameBoard, Color.White), new Position(0, 0));
                 gameBoard.PutPiece(new King(gameBoard, Color.White), new Position(2, 4));
                 gameBoard.PutPiece(new Castle(gameBoard, Color.White), new Position(7, 7));
+
+                gameBoard.PutPiece(new King(gameBoard, Color.Black), new Position(1, 0));
+                gameBoard.PutPiece(new King(gameBoard, Color.Black), new Position(3, 4));
+                gameBoard.PutPiece(new Castle(gameBoard, Color.Black), new Position(0, 7));
             }
             catch (BoardException ex)
             {
