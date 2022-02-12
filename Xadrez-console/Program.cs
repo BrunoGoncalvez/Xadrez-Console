@@ -11,34 +11,33 @@ namespace Xadrez_console
         static void Main(string[] args)
         {
 
-            GameBoard gameBoard = new GameBoard(8, 8);
-            GameBoard(gameBoard);
-            Screen.ShowGameBoard(gameBoard);
-
-            
-                       
-        }
-
-        static void GameBoard(GameBoard gameBoard)
-        {
             try
             {
-                gameBoard.PutPiece(new King(gameBoard, Color.White), new Position(0, 0));
-                gameBoard.PutPiece(new King(gameBoard, Color.White), new Position(2, 4));
-                gameBoard.PutPiece(new Castle(gameBoard, Color.White), new Position(7, 7));
+                ChessGame chessGame = new ChessGame();
+                
+                while (!chessGame.Finish)
+                {
+                    Screen.ShowGameBoard(chessGame.GameBoard);
 
-                gameBoard.PutPiece(new King(gameBoard, Color.Black), new Position(1, 0));
-                gameBoard.PutPiece(new King(gameBoard, Color.Black), new Position(3, 4));
-                gameBoard.PutPiece(new Castle(gameBoard, Color.Black), new Position(0, 7));
+                    Console.WriteLine();
+
+                    Console.Write("Origin: ");
+                    Position origin = Screen.ReadPositionChess().ToPosition();
+
+                    Console.Write("Destination: ");
+                    Position destination = Screen.ReadPositionChess().ToPosition();
+
+                    chessGame.ExecuteMovement(origin, destination);
+                }
+
             }
-            catch (BoardException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch (Exception e)
+            catch (BoardException e)
             {
                 Console.WriteLine(e.Message);
             }
+
+            
+                       
         }
 
     }

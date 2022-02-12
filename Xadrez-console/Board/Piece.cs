@@ -17,5 +17,11 @@ namespace Xadrez_console.Board
             this.Color = color;
             this.GameBoard = gameBoard;
         }
+
+        public void InceaseMovements()
+        {
+            Movements++;
+        }
+
     }
 }
